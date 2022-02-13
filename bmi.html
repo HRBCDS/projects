@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <FORM NAME="BMI" method=POST>
+        <TABLE border=1>
+        <TR>
+        <TD><DIV ALIGN=CENTER><font color="blue">وزن شما (kg)</font> </DIV></TD>
+        <TD><DIV ALIGN=CENTER><font color="blue">قد شما (cm)</font></DIV></TD>
+        <TD><DIV ALIGN=CENTER><font color="green">شما BMI</font></DIV></TD>
+        <TD><DIV ALIGN=CENTER><font color="red">نظر من</font></DIV></TD>
+        </TR>
+        
+        <TR>
+        <TD><INPUT TYPE=TEXT NAME=weight  SIZE=10 onFocus="this.form.weight.value=''"></TD>
+        <TD><INPUT TYPE=TEXT NAME=height  SIZE=10 onFocus="this.form.height.value=''"></TD>
+        <TD><INPUT TYPE=TEXT NAME=bmi     SIZE=8 ></TD>
+        <TD><INPUT TYPE=TEXT NAME=my_comment size=60></TD>
+        </TABLE>
+        
+        <P>
+        <INPUT TYPE="button" VALUE="محاسبه کن" onClick="computeform(this.form)">
+        <INPUT TYPE="reset"  VALUE="ریست" onClick="ClearForm(this.form)">
+        </FORM>
+        
+        <SCRIPT LANGUAGE="JAVASCRIPT">
+        <!-- hide this script tag's contents from old browsers
+        
+        
+        function ClearForm(form){
+        
+            form.weight.value = "";
+            form.height.value = "";
+            form.bmi.value = "";
+            form.my_comment.value = "";
+        
+        }
+        
+        function bmi(weight, height) {
+        
+                  bmindx=weight/eval(height*height);
+                  return bmindx;
+        }
+        
+        function checkform(form) {
+        
+               if (form.weight.value==null||form.weight.value.length==0 || form.height.value==null||form.height.value.length==0){
+                    alert("\nPlease complete the form first");
+                    return false;
+               }
+        
+               else if (parseFloat(form.height.value) <= 0||
+                        parseFloat(form.height.value) >=500||
+                        parseFloat(form.weight.value) <= 0||
+                        parseFloat(form.weight.value) >=500){
+                        alert("\nچی کار میکنی؟ \nلطفا اعداد را درست و واقعی انتخاب کنید \nوزن به کیلوگرم \nقد به سانتی متر");
+                        ClearForm(form);
+                        return false;
+               }
+               return true;
+        
+        }
+        
+        function computeform(form) {
+        
+               if (checkform(form)) {
+        
+               yourbmi=Math.round(bmi(form.weight.value, form.height.value/100));
+               form.bmi.value=yourbmi;
+        
+               if (yourbmi >40) {
+                  form.my_comment.value="شما بیش از حد چاقی بیشتر ورزش کن و کمتر بخور";
+               }
+        
+               else if (yourbmi >30 && yourbmi <=40) {
+                  form.my_comment.value="شما چاقید.به شما پیشنهاد ورزش میکنم";
+               }
+        
+               else if (yourbmi >27 && yourbmi <=30) {
+                  form.my_comment.value="شما مقداری چاقی قبل از اینکه دیر شود کاری بکن";
+               }
+        
+               else if (yourbmi >22 && yourbmi <=27) {
+                  form.my_comment.value="شما یک ذره چاقی ورزش کن و رژیم بگیر";
+               }
+        
+               else if (yourbmi >=21 && yourbmi <=22) {
+                  form.my_comment.value="!!من شما را تحسین میکنم ادامه بده";
+               }
+        
+               else if (yourbmi >=18 && yourbmi <21) {
+                  form.my_comment.value="شما لاغری بیشتر بخور";
+               }
+        
+               else if (yourbmi >=16 && yourbmi <18) {
+                  form.my_comment.value="شما از لاغری داری میمیری برو یه چیزی بخور";
+               }
+        
+               else if (yourbmi <16) {
+                  form.my_comment.value="شما خیلی خیلی لاغری بهتره بری بیمارستان ";
+               }
+        
+               }
+               return;
+        }
+        </SCRIPT>
+          
+</body>
+</html>

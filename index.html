@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label> بهای کالا  </label>
+        <input
+        type="text"
+        placeholder="مبلغ تمام شده را وارد کنید"
+        id="amount"
+        />
+        <button onclick="valueaddedtax()"> محاسبه کن  </button>
+            <p id="demo1"></p>
+            <p id="demo2"></p>
+        </div>
+        <script>
+            function valueaddedtax() {
+                var value=document.getElementById("amount").value;
+                var tax=0.09;
+                var vat=Number(value) *tax;
+                var finalprice = vat + Number(value);
+                document.getElementById("demo1").innerhtml =
+                "مالیات "+ vat;
+                document.getElementById("demo2").innerHTML =
+                "مبلغ نهایی"+finalprice;
+            }
+                      
+            function calcTax(fee) {
+            var darsad = 0.09;
+            var tax = fee * darsad;
+
+            var total = fee + tax;
+
+            return total;
+
+        }
+        function calcage(byer);
+        var tex =
+
+        </script>
+</body>
+</html>
